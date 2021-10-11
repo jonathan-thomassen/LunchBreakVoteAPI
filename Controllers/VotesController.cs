@@ -16,7 +16,12 @@ namespace LunchBreakVoteAPI.Controllers
     [ApiController]
     public class VotesController : Controller
     {
-        private readonly VotesManager _manager = new VotesManager();
+        private readonly IVotesManager _manager;
+
+        public VotesController(ItemContext context)
+        {
+            _manager = new VotesManagerSQL(context);
+        }
 
         // GET: api/<ItemsController>
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -25,9 +30,8 @@ namespace LunchBreakVoteAPI.Controllers
         public ActionResult<IEnumerable<Vote>> Get()
         {
             List<Vote> votes = _manager.GetAll();
-
-            if (votes.Count == 0) return NotFound("No votes found.");
-
+            if (votes.Count == 0)
+                return NotFound("No votes found.");
             return Ok(votes);
         }
 
@@ -38,9 +42,8 @@ namespace LunchBreakVoteAPI.Controllers
         public ActionResult<Vote> Get(int id)
         {
             Vote vote = _manager.GetById(id);
-
-            if (vote == null) return NotFound("No such vote, id: " + id);
-
+            if (vote == null)
+                return NotFound("No such vote, id: " + id);
             return Ok(vote);
         }
 
@@ -50,35 +53,64 @@ namespace LunchBreakVoteAPI.Controllers
         [HttpGet("Mail/{substring}")]
         public ActionResult<IEnumerable<Vote>> GetMail(string substring)
         {
-            return _manager.GetAllByMail(substring);
+            List<Vote> foundVotes = _manager.GetAllByMail(substring);
+            if (foundVotes != null)
+                return Ok(foundVotes);
+            return NotFound("No votes found.");
         }
 
         // GET: api/<ItemsController>/Vote/
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("Choice/{choice}")]
-        public IEnumerable<Vote> GetVote(int? choice)
+        public ActionResult<IEnumerable<Vote>> GetVote(int? choice)
         {
-            return _manager.GetAllByVote(choice);
+            List<Vote> foundVotes = _manager.GetAllByVote(choice);
+            if (foundVotes != null)
+                return Ok(foundVotes);
+
+            return NotFound("No votes found.");
         }
 
         // POST api/<ItemsController>
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost]
-        public Vote Post([FromBody] Vote value)
+        public ActionResult<Vote> Post([FromBody] Vote vote)
         {
-            return _manager.Add(value);
+            Vote postedVote = _manager.Add(vote);
+            if (postedVote != null)
+            {
+                return Created($"/{vote.Id}", postedVote);
+            }
+
+            return BadRequest();
         }
 
         // PUT api/<ItemsController>/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpPut("{id}")]
-        public Vote Put(int id, [FromBody] Vote value)
+        public ActionResult<Vote> Put(int id, [FromBody] Vote vote)
         {
-            return _manager.Update(id, value);
+            Vote updatedVote = _manager.Update(id, vote);
+            if (updatedVote != null)
+                return Ok(updatedVote);
+
+            return NotFound();
         }
 
         // DELETE api/<ItemsController>/5
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpDelete("{id}")]
-        public Vote Delete(int id)
+        public ActionResult<Vote> Delete(int id)
         {
-            return _manager.Delete(id);
+            Vote deletedVote = _manager.Delete(id);
+            if (deletedVote != null)
+                return Ok(deletedVote);
+
+            return NotFound();
         }
     }
 }

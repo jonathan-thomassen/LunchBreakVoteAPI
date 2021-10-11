@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunchBreakVoteAPI", "LunchBreakVoteAPI.csproj", "{061A705D-45E8-41C1-99AD-61A34A9213DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchBreakVoteAPITests", "..\LunchBreakVoteAPITests\LunchBreakVoteAPITests.csproj", "{FF36EDA5-B442-4117-9E8F-D80C97251B7C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{061A705D-45E8-41C1-99AD-61A34A9213DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{061A705D-45E8-41C1-99AD-61A34A9213DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{061A705D-45E8-41C1-99AD-61A34A9213DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF36EDA5-B442-4117-9E8F-D80C97251B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF36EDA5-B442-4117-9E8F-D80C97251B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF36EDA5-B442-4117-9E8F-D80C97251B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF36EDA5-B442-4117-9E8F-D80C97251B7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

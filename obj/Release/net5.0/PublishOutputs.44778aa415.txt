@@ -1,0 +1,10 @@
+C:\Users\jonat\source\repos\LunchBreakVoteAPI\obj\Release\net5.0\PubTmp\Out\LunchBreakVoteAPI.exe
+C:\Users\jonat\source\repos\LunchBreakVoteAPI\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
+C:\Users\jonat\source\repos\LunchBreakVoteAPI\obj\Release\net5.0\PubTmp\Out\appsettings.json
+C:\Users\jonat\source\repos\LunchBreakVoteAPI\obj\Release\net5.0\PubTmp\Out\LunchBreakVoteAPI.dll
+C:\Users\jonat\source\repos\LunchBreakVoteAPI\obj\Release\net5.0\PubTmp\Out\LunchBreakVoteAPI.deps.json
+C:\Users\jonat\source\repos\LunchBreakVoteAPI\obj\Release\net5.0\PubTmp\Out\LunchBreakVoteAPI.runtimeconfig.json
+C:\Users\jonat\source\repos\LunchBreakVoteAPI\obj\Release\net5.0\PubTmp\Out\LunchBreakVoteAPI.pdb
+C:\Users\jonat\source\repos\LunchBreakVoteAPI\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\jonat\source\repos\LunchBreakVoteAPI\obj\Release\net5.0\PubTmp\Out\WebDriver.Support.dll
+C:\Users\jonat\source\repos\LunchBreakVoteAPI\obj\Release\net5.0\PubTmp\Out\WebDriver.dll
